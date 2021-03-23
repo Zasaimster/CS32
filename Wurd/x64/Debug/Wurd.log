@@ -1,0 +1,13 @@
+﻿  StudentTextEditor.cpp
+C:\Users\cools\Desktop\MAINWURD\Wurd\StudentTextEditor.cpp(81,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\cools\Desktop\MAINWURD\Wurd\StudentTextEditor.cpp(104,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\cools\Desktop\MAINWURD\Wurd\StudentTextEditor.cpp(117,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\cools\Desktop\MAINWURD\Wurd\StudentTextEditor.cpp(129,33): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\cools\Desktop\MAINWURD\Wurd\StudentTextEditor.cpp(186,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\cools\Desktop\MAINWURD\Wurd\StudentTextEditor.cpp(222,39): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\cools\Desktop\MAINWURD\Wurd\StudentTextEditor.cpp(241,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\cools\Desktop\MAINWURD\Wurd\StudentTextEditor.cpp(317,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  StudentUndo.cpp
+C:\Users\cools\Desktop\MAINWURD\Wurd\StudentUndo.cpp(101,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Wurd.vcxproj -> C:\Users\cools\Desktop\MAINWURD\x64\Debug\Wurd.exe
