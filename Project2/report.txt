@@ -1,0 +1,197 @@
+1) I created a very simple double linked list. It contains a pointer to the previous and next nodes in each Node, and it contains the ItemType variable. However, it does not utilize a Tail pointer, and it is also not a circular linked list. To be completely honest, I implemented the entire thing before I was told about the announcement on the cs32 website, but after thoroughly testing edge cases, I realized I did not need a circular linked list to handle all the edge cases. I also did not use a dummy node, so the only private variable my Sequence class contains is a pointer to the head node.
+
+2) 
+
+copy constructor:
+	set head to null
+	initialize a pointer to the source's head
+	for the length of source
+		insert the variable at source into index i
+		set pointer to next value
+
+operator= :
+	set pointer to head
+	while pointer is not null
+		create a pointer (node) to the pointer's next node
+		delete the pointer
+		set the pointer equal to node
+	set head to null
+	initialize a pointer to the source's head
+	for the length of source
+		insert the variable at source into index i
+		set pointer to next value
+
+
+insert(int pos, const ItemType& value):
+	if the pos is not in bounds, return -1
+	if pos is at the very start
+		make a new node
+		set its value 
+		set its next value to head and prev to null
+		if the linked list isn't empty, make the head's previous value this new node
+		set head equal to the new node
+	else if pos is the very end
+		make a pointer to head
+		iterate pointer until its next value is nullptr
+		make a new node
+		set its value
+		set the new nodes previous to the pointer
+		set pointer's next to the new node
+		set new node's next to nullptr
+		
+	else 
+		create a count variable intialized to 0
+		iterate with a pointer (p) until count equals pos - 1
+		make a new node
+		set the new node's value
+		create another pointer (p1) to p->next->next
+		set the new node's previous value to p
+		set the new node's next value to p1
+		set p1's previous value to the new node
+		set p's next value to the new node
+
+
+insert(const ItemType& value):
+	if the size of the linked list is 0, call the above insert function with position 0
+	set a count value to 0
+	create a pointer to the list
+	iterate until p is either null or the value is less than or equal to the value at p
+	call the insert function above with a position of count
+
+
+erase:
+	if pos is 0	
+		make a new node to head
+		set head to new node's next pointer
+		delete new node
+		if the size of the list isn't 0, set head's previous pointer to nullptr
+	else if pos is at the end of the list
+		using a pointer p, iterate until p->next->next is nullptr
+		make a new pointer to p->next
+		delete this new pointer
+		set p->next to nullptr
+	else 
+		set a count to 0 and iterate with a pointer (p) until count equals pos - 1
+		set a new pointer to p->next
+		set p->next to p->next->next
+		change the double next's previous value to p
+		delete the new pointer
+
+remove:
+	set an index value to 0 and a count value to 0
+	iterate through the entire list with a pointer p
+		if the value at p is equal to value
+			call erase at the value of the index
+			increment count by 1 and set p to p->next
+		else increment index by one and set p to p->next
+
+interleave:
+	set an int length to the smaller of the lengths of seq1 and seq2
+	set an int resultIndex to the size of result
+	for i = 0 through length
+		make an ItemType temp
+		get the value at index i in seq1 and put it into temp
+		insert temp into result at resultIndex 
+		get the value at index i in seq2 and put it into temp
+		insert temp into result at resultIndex + 1
+		increment resultIndex by 2
+
+	for i = length through the max value of the length of seq1 and seq2
+		make an ItemType temp
+		if the size of seq 1 is bigger than seq2, get the value at index i of seq1 and put it into temp
+		otherwise, get the value at index i of seq2 and put it into temp
+		insert temp into result at resultIndex
+		increment resultIndex by 1
+
+subsequence:
+	if the size of seq1 is less than size of seq2 return -1
+	make an ItemType value for start of seq2
+	for i = 0 through size of seq1 length minus seq2 length
+		set an ItemType temp and get the value of seq1 at i and put it into temp
+		if the temp value is equal to the start of seq 2
+			make an ItemType seq2temp
+			set an int count equal to 1
+			for j = 1 through length of seq2
+				get the value of seq1 at i + j stored in temp
+				get the value of seq2 at j stored in seq2temp
+				if temp is not equal to seq2 temp, break out of the loop
+				otherwise increment count by 1
+			if count is equal to the length of seq2, return i
+	if you get out of the loop, return -1
+
+
+3) 
+testing with ItemTye being a typew alian for unsigned long
+
+//default constructor
+Sequence s
+
+//empty sequence
+assert(s.size() == 0); //empty size
+assert(s.empty() == 0); //check to see if it's empty with an empty sequence
+assert(s.erase(0) == -1); //pass invalid bond to erase
+assert(s.remove(any int) == 0); //nothing can be removed in an empty sequence
+assert(s.get(any int, any itemtype) == false); //can never get any item at any pos in an empty sequence. This tests the bounds edge case
+assert(s.set(any int, any itemtype) == false); //can never set an item with an empty sequence
+assert(s.find(any itemtype) == -1); //can not find anything in an empty sequence
+assert(s.insert(0) == 0); // inserts a value into an empty sequence
+assert(s.insert(1) == 1); //inserts a value at the very end of an empty sequence
+assert(s.insert(0, 10) == 0); //inserts at the front of a non-empty sequence
+assert(s.insert(3, 11) == 3); //inserts at the end of a non-empty sequence
+assert(s.insert(1, 15) == 1); //inserts in the middle of a non-empty sequence
+assert(s.insert(100, any int) == -1); //inserting at an invalid index
+//current sequence: 0->15->1->10->1
+assert(s.erase(0) == true); //erase an item at the front
+assert(s.erase(3) == true); //erase an item at the back
+assert(s.erase(1) == true); //erase an item in the middle
+//current sequence: 15->10
+//assume more values are inserted to make the sequence 0->15->1->10->1 again
+assert(s.remove(1) == 2); // test remove for values that occur more than once
+assert(s.remove(0) == 1); // test remove for values that occur only once
+assert(s.remove(100) == 0); // test remove for values that never occur
+//assume more values are inserted to make the sequence 0->15->1->10->1 again
+ItemType v = 999;
+assert(s.get(10, v) == false && v == 999); //test that v is left unchanged and that the function produces false when an invalid index is given
+assert(s.get(0, v) == true && v == 0); //test that v is changes to the right value and that the function produces true when a valid index is given
+ItemType t;
+assert(s.set(1, v) == true && s.get(1, t) == true && t == 0); //test set to make sure it returns true and sets values in the list properly
+assert(s.set(100, v) == false); //test an invalid index
+assert(s.find(0) == 0); //finds the proper index when the value exits in the sequence
+assert(s.find(-1) == -1); //function returns -1 when value doesnt exist in sequence
+//create a new sequence
+Sequence s1;
+s1.insert(1);
+s1.insert(2);
+s1.insert(3);
+s.swap(s1); //test to make sure the swap function works properly
+
+Sequence s1 = s; //test to see if the equal operator works properly
+Sequence s2(s); // test to see if the copy constructor works properly
+
+Sequence s3;
+s3.insert(1);
+s3.insert(2);
+s3.insert(3);
+
+Sequence s4;
+s4.insert(2);
+s4.insert(3);
+
+assert(subsequence(s3, s4) == 1); //checks when a valid subsequence is present
+assert(subsequence(s4, s3) == -1); //gives -1 when the first parameter is smaller than the second
+assert(subsequence(s, s4) == -1); //returns -1 when subsequence is not present
+
+Sequence s5;
+Sequence s6;
+Sequence s7;
+
+interleave(s3, s4, s5); //test when an empty result parameter is passed and when seq1 and seq2 are both non-empty
+interleave(s3, s4, s); //test when a non-empty result parameter is passed and when seq1 and seq2 are both non-empty
+interleave(s7, s6, s); //test when seq1 and seq2 are both empty
+interleave(s7, s3, s6); //test when seq1 is empty
+interleave(s3, s7, s6); //test when seq2 is empty
+
+
+
+		
+		
