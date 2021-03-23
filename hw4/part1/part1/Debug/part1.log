@@ -1,0 +1,17 @@
+﻿  Sequence.cpp
+D:\School_CS\CS32\hw4\part1\part1\Sequence.h(152,15): error C2676: binary '>': 'const ItemType' does not define this operator or a conversion to a type acceptable to the predefined operator
+          with
+          [
+              ItemType=Coord
+          ]
+D:\School_CS\CS32\hw4\part1\part1\Sequence.h(147): message : while compiling class template member function 'int Sequence<Coord>::insert(const ItemType &)'
+          with
+          [
+              ItemType=Coord
+          ]
+D:\School_CS\CS32\hw4\part1\part1\Sequence.cpp(21): message : see reference to function template instantiation 'int Sequence<Coord>::insert(const ItemType &)' being compiled
+          with
+          [
+              ItemType=Coord
+          ]
+D:\School_CS\CS32\hw4\part1\part1\Sequence.cpp(19): message : see reference to class template instantiation 'Sequence<Coord>' being compiled

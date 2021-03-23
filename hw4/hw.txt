@@ -1,0 +1,11 @@
+2) The reason Sequence<Coord>::insert won't run is because there isn't a custom comparison operator written for it. The insert(const ItemType& value) function compares value to other values in the linked list using the ">" operator, but the compiler has no way of knowing how to compare two different Coord objects.
+
+4b) You would not be able to solve this as a one parameter function because there would be no way to store the preceding portion of each directory. For example, in this case, you would never be able to store /My Pictures when you move onto the /Fun, /Miscellaneous, or the /Work directory
+
+5a) O(N^3). This algorithm runs through a triple for loop which goes from i to N, j to N, and k to N. The logic in betwen does not matter as much. There are some cases where the loop breaks out when k == i || k == j or i == j, but in the grand scheme of things, that does not matter
+
+5b) O(N^3), the logic is the same as 5a. The code still runs through a triple for loop
+
+6a) Each .get() method takes up to O(N) time to find the item. the first for loop goes from 0 to N and has two get() methods, so its time complexity is 2N^2 which reduces to O(N^2). The second for loop goes from 0 to N and uses the get() method once, so it is also O(N^2). Thus, the total time complexity for the function is O(N^2)
+
+6b) since inserting an item takes O(1) time, this implementation only takes O(N) time. The first for loop goes through both p1 and p2 until one of them run out. The second for loop goes from the end of the smaller list to the end of the second list. if seq1 and seq2 were not the same size, then the first for loop would run through O(N1) (Assuming that N1 is smaller) and the second for loop would run O(N2 - N1) amount of times. Adding them together, we have O(N2) amount of times. in this function's case, we have O(N) times. This is better than 6a because N < N^2.

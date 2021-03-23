@@ -1,0 +1,77 @@
+1
+a)
+                                50
+
+                         20            60
+
+                   10        40            70
+
+		     15	    30	 	65	80
+			   
+			  25	32	      78
+
+b) in order: 10, 15, 20, 25, 30, 32, 40, 50, 60, 65, 70, 78, 80
+   pre-order:50, 20, 10, 15, 40, 30, 25, 32, 60, 70, 65, 80, 78
+   postorder:15, 10, 25, 32, 30, 40, 20, 65, 78, 80, 70, 60, 50 
+
+c)
+                                50
+
+                         15            60
+
+                   10        40            70
+
+		     	    25	 	65	80
+			   
+			  	32	      78
+
+2) 
+
+a) 
+
+struct BTN {
+
+int val;
+BTN* parent;
+BTN* left;
+BTN* right;
+
+}
+
+
+b) 
+insert(node, newNode) {
+	if(node is nullptr)
+		return the newNode
+	else if node's val > newNode's val
+		make a tempPointer to insert(node->left, newNode)
+		set node->left to tempPointer;
+	else
+		make a tempPointer to insert(node->right, newNode);
+		set node->right to tempPointer;
+	return node;
+
+}
+
+
+3)
+
+a)
+		7
+	6		2
+    4	    5	   0
+
+b) if remove() deletes values from the array: [7, 6, 2, 4, 5, 0]
+c) [6, 5, 4, 2, 0]
+
+4) 
+a) O(C + S)
+b) O(logC + S)
+c) O(logC + logS)
+d) O(C + logS)
+e) O(C + S)
+f) O(logC + S)
+g) O(C + SlogS + S)
+h) O(C*logS)
+
+

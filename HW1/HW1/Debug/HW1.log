@@ -1,0 +1,20 @@
+﻿  ScoreList.cpp
+  newSequence.cpp
+  testingFile.cpp
+  Generating Code...
+D:\School_CS\CS32\HW1\HW1\ScoreList.cpp(18): warning C4715: 'ScoreList::add': not all control paths return a value
+  LINK : D:\School_CS\CS32\HW1\Debug\HW1.exe not found or not built by the last incremental link; performing full link
+Sequence.obj : error LNK2005: "public: __thiscall Sequence::Sequence(void)" (??0Sequence@@QAE@XZ) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: bool __thiscall Sequence::empty(void)const " (?empty@Sequence@@QBE_NXZ) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: bool __thiscall Sequence::erase(int)" (?erase@Sequence@@QAE_NH@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: int __thiscall Sequence::find(unsigned long const &)const " (?find@Sequence@@QBEHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: bool __thiscall Sequence::get(int,unsigned long &)const " (?get@Sequence@@QBE_NHAAK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: int __thiscall Sequence::insert(unsigned long const &)" (?insert@Sequence@@QAEHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: int __thiscall Sequence::insert(int,unsigned long const &)" (?insert@Sequence@@QAEHHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: void __thiscall Sequence::printList(void)" (?printList@Sequence@@QAEXXZ) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: int __thiscall Sequence::remove(unsigned long const &)" (?remove@Sequence@@QAEHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: bool __thiscall Sequence::set(int,unsigned long const &)" (?set@Sequence@@QAE_NHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: int __thiscall Sequence::size(void)const " (?size@Sequence@@QBEHXZ) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: void __thiscall Sequence::swap(class Sequence &)" (?swap@Sequence@@QAEXAAV1@@Z) already defined in newSequence.obj
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+D:\School_CS\CS32\HW1\Debug\HW1.exe : fatal error LNK1120: 1 unresolved externals
