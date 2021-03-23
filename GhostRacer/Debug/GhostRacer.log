@@ -1,0 +1,13 @@
+﻿  Actor.cpp
+C:\Users\cools\Desktop\GhostRacer\GhostRacer\Actor.cpp(106,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\cools\Desktop\GhostRacer\GhostRacer\Actor.cpp(131,45): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cools\Desktop\GhostRacer\GhostRacer\Actor.cpp(131,39): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cools\Desktop\GhostRacer\GhostRacer\Actor.cpp(152,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\cools\Desktop\GhostRacer\GhostRacer\Actor.cpp(289,86): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cools\Desktop\GhostRacer\GhostRacer\Actor.cpp(289,65): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cools\Desktop\GhostRacer\GhostRacer\Actor.cpp(362,80): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cools\Desktop\GhostRacer\GhostRacer\Actor.cpp(362,59): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  StudentWorld.cpp
+  Generating Code...
+C:\Users\cools\Desktop\GhostRacer\GhostRacer\Actor.cpp(389): warning C4715: 'ZombieCab::determineLane': not all control paths return a value
+  GhostRacer.vcxproj -> C:\Users\cools\Desktop\GhostRacer\Debug\GhostRacer.exe
